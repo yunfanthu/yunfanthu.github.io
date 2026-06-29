@@ -1,49 +1,35 @@
-# Yutong Wang — Academic Homepage
+# Yunjian Zhang - Personal Website
 
-Source code for [https://emoilere.github.io](https://emoilere.github.io), the personal academic homepage of **Yutong Wang (王宇彤)**, undergraduate researcher at **Lanzhou University**.
+Source code for [https://yunfanthu.github.io](https://yunfanthu.github.io), the personal academic homepage of **Yunjian Zhang (章筠舰)**.
 
 ## Structure
 
-```
-EMOILERE.github.io/
-├── index.html               # the entire site (single-file HTML + inline CSS)
+```text
+yunfanthu.github.io/
+├── index.html
 ├── assets/
-│   ├── photo.jpg            # portrait
+│   ├── photo.jpg
 │   ├── lanzhouuniversity.jpeg
-│   └── teaser_*.svg         # per-paper teaser thumbnails (SVG, no external deps)
+│   └── paper_figure/
 └── README.md
 ```
 
-## Deploy to GitHub Pages
-
-1. Create a public GitHub repository named **exactly** `EMOILERE.github.io` (the repo name must match `username.github.io`).
-2. Push the contents of this folder to the `main` branch:
-   ```bash
-   cd EMOILERE.github.io
-   git init
-   git add .
-   git commit -m "Initial homepage"
-   git branch -M main
-   git remote add origin https://github.com/EMOILERE/EMOILERE.github.io.git
-   git push -u origin main
-   ```
-3. On GitHub, go to **Settings → Pages**. Confirm the source is `Deploy from a branch` → `main` / `/ (root)`.
-4. After a few seconds your site is live at `https://emoilere.github.io`.
-
-## Local preview
+## Local Preview
 
 ```bash
-cd EMOILERE.github.io
 python3 -m http.server 8000
-# then open http://localhost:8000
 ```
 
-## How to update content
+Then open `http://localhost:8000`.
 
-- **News, Publications, Awards** are all plain HTML blocks inside `index.html` — edit them directly.
-- To add a new paper: copy one of the `<div class="pub">…</div>` blocks, swap the teaser SVG path, title, authors, venue, and links.
-- To add a new teaser image: drop a 320×200 SVG (or any 16:10 image) into `assets/` and point the `<img>` to it.
+## Update Guide
 
-## Design
+- Main page content is written directly in `index.html`.
+- Paper figures are stored in `assets/paper_figure/`.
+- Portrait photo is stored in `assets/photo.jpg`.
+- After local edits, push the updated files to the `main` branch of `yunfanthu.github.io`.
 
-The layout follows the single-column academic-homepage convention popularised by sites such as Jiajun Deng (USTC) — left photo + right bio header, simple News table, paper cards with left thumbnail + right metadata, grey-scale palette with one blue accent for links, and Helvetica-family sans-serif typography.
+## Credits
+
+- Original template structure was adapted from a colleague's homepage: [EMOILERE](https://emoilere.github.io/).
+- Current content and customization are maintained for Yunjian Zhang's personal site.
