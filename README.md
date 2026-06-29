@@ -31,5 +31,5 @@ Then open `http://localhost:8000`.
 
 ## Credits
 
-- Original template structure was adapted from a colleague's homepage: [EMOILERE](https://emoilere.github.io/).
+- Original template structure was adapted from **Yutong Wang (王宇彤)**'s homepage: [https://emoilere.github.io/](https://emoilere.github.io/).
 - Current content and customization are maintained for Yunjian Zhang's personal site.
