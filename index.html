@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yunjian Zhang &mdash; Lanzhou University</title>
+  <meta
+    name="description"
+    content="Personal homepage of Yunjian Zhang, undergraduate researcher at Lanzhou University, working on Agentic AI, AI4Science, large-model acceleration, graph learning, embodied intelligence, and medical image analysis."
+  />
+  <meta name="author" content="Yunjian Zhang" />
+  <link rel="icon" type="image/jpeg" href="assets/photo.jpg" />
+  <style>
+    :root {
+      --text: #202124;
+      --text-soft: #5f6368;
+      --muted: #80868b;
+      --bg: #ffffff;
+      --rule: #e8eaed;
+      --link: #1a5fb4;
+      --link-hover: #0d3a73;
+      --accent: #b00020;
+      --max-w: 860px;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      padding: 0 20px;
+      font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 36px 0 60px; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+    p { margin: 0 0 12px 0; }
+
+    header.intro {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    header.intro .portrait {
+      flex: 0 0 200px;
+    }
+    header.intro .portrait img.photo {
+      width: 200px;
+      height: 240px;
+      object-fit: cover;
+      border: 1px solid var(--rule);
+      display: block;
+    }
+    header.intro .info { flex: 1 1 auto; }
+    header.intro h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      letter-spacing: 0.2px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    header.intro h1 .cn {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text-soft);
+    }
+    header.intro h1 .logo-inline {
+      height: 38px;
+      width: auto;
+      vertical-align: middle;
+      display: inline-block;
+    }
+    header.intro .affil { color: var(--text); margin-bottom: 14px; }
+    header.intro .affil .role { color: var(--text-soft); }
+    header.intro .contact {
+      font-size: 14.5px;
+      color: var(--text-soft);
+      line-height: 1.9;
+    }
+    header.intro .contact .lbl {
+      display: inline-block;
+      min-width: 92px;
+      color: var(--muted);
+    }
+    header.intro .links {
+      margin-top: 10px;
+      font-size: 14.5px;
+    }
+    header.intro .links a { margin-right: 4px; }
+    header.intro .links .sep { color: var(--muted); margin: 0 6px; }
+
+    h2.section {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 36px 0 16px 0;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--text);
+      letter-spacing: 0.2px;
+    }
+    h3.year {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 22px 0 10px 0;
+      color: var(--text);
+    }
+
+    .bio .highlight { color: var(--text); font-weight: 600; }
+
+    .news {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14.5px;
+    }
+    .news td {
+      padding: 6px 10px 6px 0;
+      vertical-align: top;
+    }
+    .news td.date {
+      width: 110px;
+      color: var(--muted);
+      font-style: italic;
+      white-space: nowrap;
+    }
+    .news .new { color: var(--accent); font-weight: 600; margin-right: 4px; }
+
+    .pub {
+      display: flex;
+      gap: 18px;
+      margin: 0 0 22px 0;
+      align-items: flex-start;
+    }
+    .pub .teaser {
+      flex: 0 0 200px;
+    }
+    .pub .teaser img {
+      width: 200px;
+      height: 125px;
+      object-fit: contain;
+      object-position: center;
+      background: #f7f8fa;
+      border: 1px solid var(--rule);
+      display: block;
+    }
+    .pub .meta { flex: 1 1 auto; font-size: 14.5px; line-height: 1.55; }
+    .pub .meta .title {
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .pub .meta .authors { color: var(--text); }
+    .pub .meta .me { font-weight: 700; text-decoration: underline; }
+    .pub .meta .corr { font-weight: 700; }
+    .pub .meta .venue { font-style: italic; color: var(--text-soft); display: block; margin: 3px 0; }
+    .pub .meta .badge {
+      display: inline-block;
+      font-size: 12px;
+      padding: 1px 7px;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      color: var(--text-soft);
+      margin-right: 6px;
+    }
+    .pub .meta .badge.q1 { color: #0d3a73; border-color: #cdd9ee; background: #f5f8fd; }
+    .pub .meta .badge.accepted { color: #5a3500; border-color: #f0d8a0; background: #fdf6e7; }
+    .pub .meta .badge.review { color: #7f1d1d; border-color: #f1c6c6; background: #fff4f4; }
+    .pub .meta .tldr { color: var(--text-soft); font-size: 13.5px; margin-top: 4px; display: block; }
+
+    .proj { display: flex; gap: 18px; margin-bottom: 20px; align-items: flex-start; }
+    .proj .when {
+      flex: 0 0 150px;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 14px;
+    }
+    .proj .body { flex: 1 1 auto; font-size: 14.5px; }
+    .proj .body .ptitle { font-weight: 700; color: var(--text); }
+    .proj .body .ptag { color: var(--text-soft); font-size: 13.5px; display: block; margin: 2px 0 6px 0; }
+    .proj .body .outcome { color: var(--text-soft); font-size: 13.5px; }
+
+    .awards { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+    .awards td { padding: 5px 10px 5px 0; vertical-align: top; }
+    .awards td.level {
+      width: 130px;
+      color: var(--muted);
+      font-style: italic;
+      white-space: nowrap;
+    }
+    .awards .cn { color: var(--muted); font-size: 13px; display: block; margin-top: 1px; }
+
+    .interests { padding-left: 22px; margin: 8px 0; }
+    .interests li { margin-bottom: 6px; }
+
+    footer {
+      margin-top: 50px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 12.5px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text-soft); }
+
+    @media (max-width: 680px) {
+      header.intro { flex-direction: column; gap: 18px; }
+      header.intro .portrait,
+      header.intro .portrait img.photo { width: 160px; }
+      header.intro .portrait img.photo { height: 192px; }
+      header.intro h1 { font-size: 24px; gap: 8px; }
+      header.intro h1 .logo-inline { height: 30px; }
+      .pub { flex-direction: column; gap: 10px; }
+      .pub .teaser, .pub .teaser img { width: 100%; }
+      .pub .teaser img { height: auto; aspect-ratio: 16/10; }
+      .proj { flex-direction: column; gap: 4px; }
+      .proj .when { flex: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="intro">
+      <div class="portrait">
+        <img class="photo" src="assets/photo.jpg" alt="Yunjian Zhang" />
+      </div>
+      <div class="info">
+        <h1>Yunjian Zhang <span class="cn">章筠舰</span> <img class="logo-inline" src="assets/lanzhouuniversity.jpeg" alt="Lanzhou University" title="Lanzhou University" /></h1>
+        <div class="affil">
+          <span class="role">Undergraduate Researcher,</span><br />
+          School of Information Science and Engineering,<br />
+          <a href="https://en.lzu.edu.cn/">Lanzhou University</a>, Lanzhou, China.
+        </div>
+        <div class="contact">
+          <div><span class="lbl">E-mail:</span> <a href="mailto:zhjunjian2024@lzu.edu.cn">zhjunjian2024@lzu.edu.cn</a></div>
+          <div><span class="lbl">Alt E-mail:</span> <a href="mailto:yunfanthu@outlook.com">yunfanthu@outlook.com</a></div>
+          <div><span class="lbl">Phone:</span> <a href="tel:+8615395181532">+86 15395181532</a></div>
+          <div><span class="lbl">Status:</span> B.Eng. student, CS (Data Science track), Rank 2/119</div>
+        </div>
+        <div class="links">
+          <a href="https://github.com/yunyunfanfan">GitHub</a>
+          <span class="sep">/</span>
+          <a href="mailto:zhjunjian2024@lzu.edu.cn">Email</a>
+          <span class="sep">/</span>
+          <a href="https://en.lzu.edu.cn/">Lanzhou University</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="bio">
+      <p>
+        I am an undergraduate student in <span class="highlight">Computer Science and Technology</span> at
+        <a href="https://en.lzu.edu.cn/">Lanzhou University</a>, currently focusing on
+        <span class="highlight">Agentic AI</span>, <span class="highlight">AI for Science</span>,
+        <span class="highlight">large-model acceleration</span>, <span class="highlight">graph learning</span>,
+        <span class="highlight">embodied intelligence</span>, and <span class="highlight">medical image analysis</span>.
+      </p>
+      <p>
+        I am currently a research intern at Tsinghua University, where I design a diffusion-based model to generate
+        3D electron density maps from PDB structures with controllable resolution. My recent work also covers
+        multi-agent RAG, multimodal speculative decoding, graph unlearning, cryo-EM structure identification,
+        and protein-RNA affinity prediction.
+      </p>
+      <p>
+        To date, I have been involved in papers submitted to or under review at
+        <i>Knowledge-Based Systems</i>, <i>Neurocomputing</i>, <i>Nature Machine Intelligence</i>, and NeurIPS,
+        together with <span class="highlight">5 invention patents</span>, <span class="highlight">4 software copyrights</span>,
+        and multiple national and international competition awards.
+      </p>
+    </div>
+
+    <h2 class="section">News</h2>
+    <table class="news">
+      <tr>
+        <td class="date">2026.06</td>
+        <td><span class="new">[New]</span><i>SQB-Spec</i> was submitted to NeurIPS 2026 for accelerating large multimodal models through task-specific speculative decoding.</td>
+      </tr>
+      <tr>
+        <td class="date">2026.06</td>
+        <td><i>CryoNet.Discovery</i> remains under review at <i>Nature Machine Intelligence</i>.</td>
+      </tr>
+      <tr>
+        <td class="date">2025.07</td>
+        <td>I joined Tsinghua University as a research intern to work on diffusion-based 3D electron-density generation for structural biology.</td>
+      </tr>
+      <tr>
+        <td class="date">2025.06</td>
+        <td><i>Subspace-Constrained Graph Unlearning for Forgetting High-Risk Compound-Protein Interactions</i> was accepted by <i>Knowledge-Based Systems</i>.</td>
+      </tr>
+      <tr>
+        <td class="date">2025.03</td>
+        <td>I started leading national and university-level innovation projects on embodied intelligence, world-model acceleration, and SLAM-related geometric foundation models.</td>
+      </tr>
+    </table>
+
+    <h2 class="section">Selected Publications</h2>
+    <p style="font-size: 13.5px; color: var(--text-soft); margin-top: -4px;">
+      <span class="me" style="font-weight:700;text-decoration:underline;">Underlined</span> name denotes mine
+      &nbsp;·&nbsp;
+      <span class="corr">Bold</span> name denotes corresponding author.
+    </p>
+
+    <h3 class="year">2026</h3>
+
+    <div class="pub">
+      <div class="teaser">
+        <img src="assets/paper_figure/agent/overall.png" alt="CMHA-RAG framework" />
+      </div>
+      <div class="meta">
+        <span class="title">Think Globally, Act Locally: A Hierarchical Multi-Agent Framework with Retrieval-Augmented Generation</span>
+        <span class="authors">Yutong Wang, <span class="me">Yunjian Zhang</span>, Yunrui Shang, Zirui Liu, Zijin Wu, Yina Cao, <span class="corr">Zhongfeng Kang*</span></span>
+        <span class="venue">Submitted to <i>Knowledge-Based Systems</i>, 2026. Manuscript ID: KNOSYS-D-26-08597.</span>
+        <span class="badge review">Under Review</span>
+        <span class="tldr"><b>Keywords:</b> Multi-agent systems · Hierarchical coordination · RAG · Communication efficiency.</span>
+        <span class="tldr"><b>Highlights:</b> Proposes HATN, H-RAG, SCCP, and ATDLB; reaches 91.41% on HumanEval, 84.19% on MMLU, and 90.27% on GSM8K while reducing token cost and communication volume.</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="teaser">
+        <img src="assets/paper_figure/Dss/overall.png" alt="DSS-Unet framework" />
+      </div>
+      <div class="meta">
+        <span class="title">Dual-Selective Segmentation: Dual-Prior Guided Expert Routing for Medical Image Segmentation in a Hybrid Mamba-Transformer Framework</span>
+        <span class="authors">Lingjia Yuan, <span class="me">Yunjian Zhang</span>, Sirui Li, Yutong Wang, Zimo Li, <span class="corr">Zhongfeng Kang*</span> (co-first author)</span>
+        <span class="venue">Submitted to <i>Neurocomputing</i>, 2026.</span>
+        <span class="badge review">Under Review</span>
+        <span class="tldr"><b>Keywords:</b> Medical image segmentation · Mamba · Transformer · Mixture-of-Experts.</span>
+        <span class="tldr"><b>Highlights:</b> Introduces dual medical priors and prior-guided adaptive skip routing; reports Dice 93.76 on GlaS, 81.86 on BUSI, and 76.03 on the NeurIPS 2022 Cell Segmentation dataset.</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="teaser">
+        <img src="assets/paper_figure/sqb/overall.png" alt="SQB-Spec framework" />
+      </div>
+      <div class="meta">
+        <span class="title">SQB-Spec: Accelerating Large Multimodal Models through Task-Specific Speculative Decoding</span>
+        <span class="authors">Jisheng Dang, Bimei Wang, Yizhou Zhang, <span class="me">Yunjian Zhang</span>, Ning Lv, Hao Ye, Hong Peng, Juncheng Li, Bin Hu</span>
+        <span class="venue">NeurIPS 2026 Conference Submission.</span>
+        <span class="badge review">Submitted</span>
+        <span class="tldr"><b>Keywords:</b> VLM acceleration · Speculative decoding · EAGLE-3 · MoE routing.</span>
+        <span class="tldr"><b>Highlights:</b> Adds modality-specific pathways, gated attention, SQB mechanisms, and phase-level routing; validated on LLaVA-OneVision and Qwen3-VL with up to 2.60x speedup.</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="teaser">
+        <img src="assets/paper_figure/cryo/overall.png" alt="CryoNet framework" />
+      </div>
+      <div class="meta">
+        <span class="title">CryoNet.Discovery Enables Sequence-Independent Protein Structure Identification from Low-Resolution cryo-EM Density Maps</span>
+        <span class="authors">Muzhi Dai, Yuhan Fei, <span class="me">Yunjian Zhang</span>, Kui Xu*, Qiangfeng Cliff Zhang* (co-first author)</span>
+        <span class="venue">Under review at <i>Nature Machine Intelligence</i>.</span>
+        <span class="badge q1">NMI Under Review</span>
+        <span class="tldr"><b>Keywords:</b> cryo-EM · AI4Science · cross-modal retrieval · structural biology.</span>
+        <span class="tldr"><b>Highlights:</b> Encodes density regions and atomic structures into a shared latent space; Top-5 accuracy reaches 100.0% on CATH 6-10 A benchmark.</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="teaser">
+        <img src="assets/paper_figure/scgu/overall.png" alt="SCGU framework" />
+      </div>
+      <div class="meta">
+        <span class="title">Subspace-Constrained Graph Unlearning for Forgetting High-Risk Compound-Protein Interactions</span>
+        <span class="authors"><span class="me">Yunjian Zhang</span>, Rizhen Hu, <span class="corr">Zhongfeng Kang*</span></span>
+        <span class="venue"><i>Knowledge-Based Systems</i>, Accepted.</span>
+        <span class="badge accepted">Accepted</span>
+        <span class="tldr"><b>Keywords:</b> Graph unlearning · Heterogeneous knowledge graphs · LoRA-inspired deletion.</span>
+        <span class="tldr"><b>Highlights:</b> Builds a heterogeneous CPI graph and introduces relation shared-specific low-rank deletion operators for efficient and scalable graph unlearning.</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="teaser">
+        <img src="assets/paper_figure/gprm/overall.png" alt="GPRM-PRA framework" />
+      </div>
+      <div class="meta">
+        <span class="title">GPRM-PRA: A Language Model and Geometric Deep Learning Based Framework for Accurate Protein-RNA Binding Affinity Prediction</span>
+        <span class="authors"><span class="me">Yunjian Zhang</span>, Yutong Wang, Rizhen Hu*</span>
+        <span class="venue"><i>Journal of Chemical Information and Modeling</i>, With Editor.</span>
+        <span class="badge review">With Editor</span>
+        <span class="tldr"><b>Keywords:</b> Protein-RNA binding affinity · Language models · Geometric deep learning · Cross-attention.</span>
+        <span class="tldr"><b>Highlights:</b> Combines pretrained language models, geometric deep learning, and bidirectional cross-attention to jointly model protein and RNA sequence-structure information for accurate affinity prediction.</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="teaser">
+        <img src="assets/paper_figure/reskannet/overall.png" alt="ResKANNet framework" />
+      </div>
+      <div class="meta">
+        <span class="title">ResKANNet: A Residual Kolmogorov-Arnold Network with Multi-Scale Attention for Brain Tumor Segmentation</span>
+        <span class="authors">Zhengyi Li, <span class="corr">Zhongfeng Kang</span>, <span class="me">Yunjian Zhang</span>, Xinyu Kang, Shantian Yang, Qinghua Zhao</span>
+        <span class="venue"><i>Neurocomputing</i>, 2026.</span>
+        <span class="badge q1">SCI Q1</span>
+        <span class="tldr"><b>Keywords:</b> Brain tumor segmentation · Kolmogorov-Arnold Networks · Multi-scale attention · 3D U-Net.</span>
+        <span class="tldr"><b>Highlights:</b> Introduces selective KAN modules at high-semantic layers together with residual volumetric decoding and hybrid multi-scale attention for robust 3D brain tumor segmentation.</span>
+      </div>
+    </div>
+
+    <h2 class="section">Education and Experience</h2>
+    <div class="proj">
+      <div class="when">2024.09 &ndash; present</div>
+      <div class="body">
+        <span class="ptitle">B.Eng. in Computer Science and Technology (Data Science Track)</span>
+        <span class="ptag">Lanzhou University</span>
+        Rank: 2 / 119. Honors include Outstanding Student Scholarship, First-Class Scholarship, Discipline Competition Scholarship, Cuiying Star, Outstanding Communist Youth League Member, and Student Model.
+        <div class="outcome">Selected coursework: Computing and Informatics Design (100), Data Science Programming (100), Linear Algebra (98), Computer Programming (96), TOEFL/IELTS English (94).</div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="when">2025.07 &ndash; present</div>
+      <div class="body">
+        <span class="ptitle">Research Intern</span>
+        <span class="ptag">Tsinghua University, School of Life Sciences</span>
+        Designing a diffusion-based model for generating 3D electron density maps from PDB structures, with controllable resolution and state-of-the-art performance against traditional physics-based methods.
+        <div class="outcome">Focus: diffusion models · AI4Science · structural biology · 3D density generation.</div>
+      </div>
+    </div>
+
+    <h2 class="section">Selected Projects</h2>
+    <div class="proj">
+      <div class="when">2025 &ndash; present</div>
+      <div class="body">
+        <span class="ptitle">National-Level Innovation Projects on Embodied Intelligence</span>
+        <span class="ptag">Principal Investigator</span>
+        Leading research on perception-decision algorithms for embodied maintenance systems in fusion devices, and optimization and acceleration for embodied world-model inference based on UniFoLM-WMA-0.
+        <div class="outcome">Also leading the 2026 Junzheng Fund project on improving geometric foundation models with LoRA for SLAM applications.</div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="when">2025</div>
+      <div class="body">
+        <span class="ptitle">Double-U: Family Health Assistant</span>
+        <span class="ptag">Team Project · HarmonyOS, DevEco Studio, Python, ArkTS, DeepSeek</span>
+        Built a family health assistant with smartwatch syncing, trend prediction, personalized suggestions, anomaly alerts, and family interaction features under a WeChat-like interface.
+        <div class="outcome">Runner-up in Lanzhou University HarmonyOS competition · Software copyright: 2025SR2114102.</div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="when">2025</div>
+      <div class="body">
+        <span class="ptitle">Birthday Party: Multi-Branch Visual Novel System</span>
+        <span class="ptag">Personal Project · Python, Ren'Py</span>
+        Developed a branching visual novel with dialogue management, scene transitions, state tracking, animated assets, and multiple endings.
+        <div class="outcome">Champion of Lanzhou University Digital Media Development Competition · Software copyright: 2025SR1316087.</div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="when">2025 &ndash; 2026</div>
+      <div class="body">
+        <span class="ptitle">OpenHarmony XTS Testing and Explainable Medical Imaging Platform</span>
+        <span class="ptag">Team Projects</span>
+        Developed OpenHarmony XTS subsystem test cases and automated reports, and contributed to an explainable 3D brain-tumor segmentation platform based on MSK-Net with DICOM/NIfTI support and lightweight deployment.
+        <div class="outcome">HarmonyOS track third prize · Global Campus AI Competition application innovation bronze award · Software copyright: 2026SR0178478.</div>
+      </div>
+    </div>
+
+    <h2 class="section">Patents</h2>
+    <table class="awards">
+      <tr>
+        <td class="level">Invent.</td>
+        <td>Subspace-constrained graph unlearning method for heterogeneous CPI graphs.</td>
+      </tr>
+      <tr>
+        <td class="level">Invent.</td>
+        <td>Spatiotemporal solar-radiation prediction method and system based on physics-informed neural constraints.</td>
+      </tr>
+      <tr>
+        <td class="level">Invent.</td>
+        <td>Protein-RNA binding affinity prediction method and system.</td>
+      </tr>
+      <tr>
+        <td class="level">Invent.</td>
+        <td>A recursive mixture model for multimodal medical systems.</td>
+      </tr>
+      <tr>
+        <td class="level">Invent.</td>
+        <td>One-step generative segmentation method, system, and medium for 3D medical images based on average flow models.</td>
+      </tr>
+    </table>
+
+    <h2 class="section">Honors and Awards</h2>
+    <table class="awards">
+      <tr>
+        <td class="level">International</td>
+        <td>ASC World University Student Supercomputer Competition, Silver Award.</td>
+      </tr>
+      <tr>
+        <td class="level">International</td>
+        <td>Mathematical Contest in Modeling, Honorable Mention.</td>
+      </tr>
+      <tr>
+        <td class="level">National</td>
+        <td>ICPC Shenzhen Invitational, Silver Award.</td>
+      </tr>
+      <tr>
+        <td class="level">National</td>
+        <td>Global Campus Artificial Intelligence Algorithm Elite Competition, two National Bronze Awards.</td>
+      </tr>
+      <tr>
+        <td class="level">Provincial</td>
+        <td>First Prize, Chinese Mathematics Competition for College Students.</td>
+      </tr>
+      <tr>
+        <td class="level">University</td>
+        <td>Multiple championships and first prizes in Lanzhou University competitions on algorithm design, innovation, digital media, mathematical modeling, and HarmonyOS development.</td>
+      </tr>
+    </table>
+
+    <h2 class="section">Research Interests</h2>
+    <ul class="interests">
+      <li>Agent systems and workflow intelligence.</li>
+      <li>AI4Science, especially structural biology and biomolecular learning.</li>
+      <li>Large-model acceleration and multimodal reasoning.</li>
+      <li>Graph neural networks and graph unlearning.</li>
+      <li>Generative models, embodied SLAM, and medical image segmentation.</li>
+    </ul>
+
+    <h2 class="section">Service and Skills</h2>
+    <table class="awards">
+      <tr>
+        <td class="level">Service</td>
+        <td>Vice President of Lanzhou University Mathematics Association; lecturer in AI generative model discussion groups; organizer and problem setter for campus competitions; senior editor of Cuiying Online.</td>
+      </tr>
+      <tr>
+        <td class="level">Programming</td>
+        <td>Python, PyTorch, TensorFlow, ArkTS, C, JavaScript, HTML, CSS, Ren'Py.</td>
+      </tr>
+      <tr>
+        <td class="level">Tools</td>
+        <td>HarmonyOS, DevEco Studio, Overleaf, Notion, Ollama, Coze, Draw.io, Adobe Illustrator.</td>
+      </tr>
+      <tr>
+        <td class="level">Language</td>
+        <td>CET-4/6 500+.</td>
+      </tr>
+    </table>
+
+    <footer>
+      <div>&copy; 2026 Yunjian Zhang. All rights reserved.</div>
+      <div>Last updated: June 2026.</div>
+    </footer>
+  </div>
+</body>
+</html>
